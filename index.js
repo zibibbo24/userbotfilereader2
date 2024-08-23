@@ -8,7 +8,7 @@ const WhitespaceCountStrategy = require('./strategy/WhitespaceCountStrategy');
 const RepeatedWordsCountStrategy = require('./strategy/RepeatedWordsCountStrategy');
 const CountContext = require('./context/CountContext');
 
-// Funzione per leggere un file da un URL
+
 function readFileFromUrl(url, callback) {
   const client = url.startsWith('https') ? https : http;
   client.get(url, (res) => {
@@ -26,7 +26,7 @@ function readFileFromUrl(url, callback) {
   });
 }
 
-// Funzione per leggere un file locale
+
 function readFileFromPath(filePath, callback) {
   fs.readFile(path.resolve(filePath), 'utf8', (err, data) => {
     if (err) {
@@ -37,7 +37,7 @@ function readFileFromPath(filePath, callback) {
   });
 }
 
-// Ottieni il percorso del file o l'URL dall'input dell'utente
+
 const input = process.argv[2];
 
 if (!input) {
@@ -55,7 +55,7 @@ readFile(input, (err, data) => {
     return;
   }
 
-  // Crea il contesto e applica le diverse strategie
+  
   const strategies = {
     wordCount: new WordCountStrategy(),
     letterCount: new LetterCountStrategy(),
